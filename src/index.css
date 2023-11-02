@@ -56,6 +56,9 @@ body {
   border-radius: 0.9rem;
   overflow: scroll;
   position: relative;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .box::-webkit-scrollbar{
@@ -151,6 +154,10 @@ body {
 
 .list-watched {
   height: calc(100% - 9rem);
+}
+
+.list-watched::-webkit-scrollbar{
+  display: none;
 }
 
 .list li {
@@ -347,24 +354,20 @@ body {
   justify-content: center;
 }
 
-.rating-container{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.stars{
-  display: flex;
-  gap:2px;
-}
-
 .star{
-  height: 28px;
-  width: 28px;
+  height: 24px;
+  width: 24px;
+  display: block;
 }
 
-.rating-value{
-  font-size:2rem;
+.star-rating{
+  display: flex;
+  gap:16px;
+  align-items: center;
+}
+
+.star-list{
+  display: flex;
 }
 
 /*
@@ -374,4 +377,3 @@ SPACING SYSTEM (px)
 FONT SIZE SYSTEM (px)
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 /52 / 62 / 74 / 86 / 98
 */
-
