@@ -78,8 +78,7 @@ function Logo() {
   );
 }
 
-function Search() {
-  const [query, setQuery] = useState("");
+function Search({query,setQuery}) {
 
   return (
     <input
@@ -214,17 +213,19 @@ function WatchedSummary({ watched }) {
 const KEY="e2afdacd";
 
 export default function App() {
-  const [watched, setWatched] = useState(tempWatchedData);
-  const [movies, setMovies] = useState(tempMovieData);
+  const [watched, setWatched] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState("");
 
   useEffect(()=>{
-    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar`);
-  },[]);
+    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`);
+    console.log(query);
+  },[query]);
 
   return (
     <>
       <NavBar>
-        <Search />
+        <Search query={query} setQuery={setQuery}/>
         <Numresults movies={movies} />
       </NavBar>
       <Main>
